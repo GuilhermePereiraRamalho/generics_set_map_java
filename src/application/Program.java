@@ -1,20 +1,24 @@
 package application;
-
-import model.entities.Client;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Program {
     public static void main(String[] args) {
-        Client c1 = new Client("Maria", "maria@email.com");
-        Client c2 = new Client("Maria", "maria@email.com");
+//        Set<String> set = new HashSet<>();
+//        Set<String> set = new TreeSet<>();
+        Set<String> set = new LinkedHashSet<>();
 
-        String s1 = "Test";
-        String s2 = "Test";
+        set.add("TV");
+        set.add("Tablet");
+        set.add("Notebook");
 
-        System.out.println(c1.hashCode());
-        System.out.println(c2.hashCode());
-        System.out.println(c1.equals(c2));
-        System.out.println(c1 == c2);
-        System.out.println(s1 == s2);
+//        set.removeIf(x -> x.length() >= 3);
+        set.removeIf(x -> x.charAt(0) == 'T');
 
+        for (String p : set) {
+            System.out.println(p);
+        }
     }
 }
