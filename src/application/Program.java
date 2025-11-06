@@ -1,18 +1,28 @@
 package application;
-import java.util.Set;
-import java.util.TreeSet;
 
-import model.entities.Product;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Program {
     public static void main(String[] args) {
-        Set<Product> set = new TreeSet<>();
+        Map<String, String> cookies = new TreeMap<>();
 
-        set.add(new Product("TV", 900.0));
-        set.add(new Product("Notebook", 1200.0));
-        set.add(new Product("Tablet", 400.0));
+        cookies.put("username", "Maria");
+        cookies.put("email", "maria@gmail.com");
+        cookies.put("phone", "123456789");
 
-        for (Product p: set){
-            System.out.println(p);
+        cookies.remove("email");
+        cookies.put("phone", "123456656");
+
+        System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
+        System.out.println("Phone number: " + cookies.get("phone"));
+        System.out.println("Email: " + cookies.get("email"));
+        System.out.println("Size: " + cookies.size());
+
+        System.out.println("ALL COOKIES:");
+        for(String key : cookies.keySet()){
+            System.out.println(key + ": " + cookies.get(key));
         }
+
     }
 }
